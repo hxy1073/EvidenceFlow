@@ -1,0 +1,18 @@
+# EvidenceFlow RAG runtime configuration
+llm:
+  rag: index
+  rag_host: http://127.0.0.1:8021
+  embedding_model: bge-m3
+  llm_host: http://127.0.0.1:11434
+  evaluation_model: qwen3.5:27b
+  evaluation_context_max_chars: 800
+retrieval:
+  top_k: 12
+  candidate_k: 32
+  max_top_k: 100
+  max_candidate_k: 200
+  hybrid_weights: [0.5, 0.5]
+faiss:
+  threads: 1
+debug:
+  line_similarity: false
