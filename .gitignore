@@ -1,0 +1,18 @@
+# Local secrets and personal data
+**/.env
+**/*.sqlite
+**/*.sqlite-*
+**/__pycache__/
+**/*.pyc
+**/logs/
+logs/
+processes.json
+.venv/
+runtime/
+# Corpus and generated data
+pdf-data/论文/
+pdf-data/mineru-output/
+rag-service/rag/*.jsonl
+rag-service/cache/
+# Local bundles
+*.zip
