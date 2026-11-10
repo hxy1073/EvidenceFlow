@@ -1,0 +1,207 @@
+version: 1
+
+ranker_defaults:
+  stop_words:
+    - 的
+    - 了
+    - 是
+    - 有
+    - 和
+    - 与
+    - 及
+    - 或
+    - 什么
+    - 如何
+    - 怎么
+    - 请问
+  weights:
+    tfidf_score: 0.52
+    lexical_score: 0.34
+    symbol_score: 0.04
+    original_rank_score: 0.10
+
+intents:
+  numeric_spec:
+    description: 数值、规格、公差、尺寸、范围类问题
+    query_triggers:
+      terms:
+        - 公差
+        - 允差
+        - 偏差
+        - 范围
+        - 尺寸
+        - 厚度
+        - 孔径
+        - 线宽
+        - 线距
+        - 上孔径
+        - 下孔径
+        - 管控
+        - 控制
+        - 多少
+        - 多大
+      patterns:
+        - "\\d+(\\.\\d+)?\\s*(um|μm|mm|mil|%)"
+        - "(\\+/-|±|≤|≥|<=|>=)"
+    doc_markers:
+      - "+/-"
+      - "±"
+      - "%"
+      - "≤"
+      - "≥"
+      - "<="
+      - ">="
+      - "um"
+      - "μm"
+      - "mm"
+      - "mil"
+      - "管控"
+      - "控制"
+    rank_features:
+      tfidf_score: 0.48
+      lexical_score: 0.30
+      symbol_score: 0.14
+      original_rank_score: 0.08
+
+  disposition:
+    description: 处置、处理方式类问题
+    query_triggers:
+      terms:
+        - 处置
+        - 处理
+        - 怎么处理
+        - 处理方法
+        - 重工
+        - 报废
+        - 返工
+        - 检修
+    doc_markers:
+      - 处理方法
+      - 处置方式
+      - 重工
+      - 报废
+      - 检修
+      - 改善
+    rank_features:
+      tfidf_score: 0.46
+      lexical_score: 0.42
+      symbol_score: 0.00
+      original_rank_score: 0.12
+
+  definition:
+    description: 定义、简称类问题
+    query_triggers:
+      terms:
+        - 是什么
+        - 什么意思
+        - 定义
+        - 代表什么
+        - 简称
+    doc_markers:
+      - 定义
+      - 简称
+      - Critical Defect
+      - Major Defect
+      - Minor Defect
+    rank_features:
+      tfidf_score: 0.44
+      lexical_score: 0.44
+      symbol_score: 0.00
+      original_rank_score: 0.12
+
+  enumeration:
+    description: 枚举、列表类问题
+    query_triggers:
+      terms:
+        - 包括哪些
+        - 有哪些
+        - 哪几个
+        - 分别是
+        - 列出
+    doc_markers:
+      - "1."
+      - "2."
+      - "3."
+      - "一、"
+      - "二、"
+      - "三、"
+    rank_features:
+      tfidf_score: 0.48
+      lexical_score: 0.38
+      symbol_score: 0.00
+      original_rank_score: 0.14
+
+  process_method:
+    description: 流程、方法、工具、设备类问题
+    query_triggers:
+      terms:
+        - 流程
+        - 步骤
+        - 方法
+        - 怎么做
+        - 如何
+        - 检验器具
+        - 设备
+        - 工具
+        - 测量位置
+        - 检查方式
+    doc_markers:
+      - 流程
+      - 方法
+      - 检验器具
+      - 设备
+      - 工具
+      - 测量位置
+    rank_features:
+      tfidf_score: 0.46
+      lexical_score: 0.42
+      symbol_score: 0.00
+      original_rank_score: 0.12
+
+  frequency:
+    description: 频率、抽检、周期类问题
+    query_triggers:
+      terms:
+        - 频率
+        - 抽检
+        - 每班
+        - 每料号
+        - 每机台
+        - 每LOT
+        - 几PNL
+        - 多少PNL
+    doc_markers:
+      - 频率
+      - 抽样
+      - 抽检
+      - 每班
+      - 每料号
+      - 每机台
+      - 每LOT
+      - PNL
+    rank_features:
+      tfidf_score: 0.46
+      lexical_score: 0.40
+      symbol_score: 0.02
+      original_rank_score: 0.12
+
+  comparison:
+    description: 对比、差异类问题
+    query_triggers:
+      terms:
+        - 区别
+        - 不同
+        - 差异
+        - 相比
+        - 有何不同
+    doc_markers:
+      - 普通板
+      - 医疗板
+      - 汽车板
+      - 安全类
+      - 类型
+    rank_features:
+      tfidf_score: 0.48
+      lexical_score: 0.38
+      symbol_score: 0.02
+      original_rank_score: 0.12
