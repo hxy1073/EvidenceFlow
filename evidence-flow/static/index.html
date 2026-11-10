@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EvidenceFlow · AI 研究助手</title>
+  <link rel="stylesheet" href="/static/styles.css?v=20261029-delete1">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <button class="sidebar-toggle" id="sidebar-toggle" type="button" aria-label="收起侧边栏" title="收起侧边栏">‹</button>
+      <div class="brand" role="button" tabindex="0" id="brand-home">
+        <span class="brand-mark"><i></i><b></b><em></em></span>
+        <span><strong>Evidence <span>Flow</span></strong><small>让研究结论有据可依</small></span>
+      </div>
+      <nav class="primary-nav" aria-label="主导航">
+        <button class="nav-link" id="home-nav"><img src="/static/assets/10021-imgVector.svg?v=20261028" alt=""><span>首页</span></button>
+        <button class="nav-link" id="projects-nav"><img src="/static/assets/10021-imgProject.svg?v=20261028" alt=""><span>研究项目</span><span class="nav-chevron">⌄</span></button>
+        <div id="projects-list" class="projects-list"></div>
+        <button class="nav-link" id="library-nav"><img src="/static/assets/10021-imgLibrary.svg?v=20261028" alt=""><span>文献库</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="user-card"><span class="avatar">T</span><span><strong>Taotao</strong><small>研究工作空间</small></span></div>
+        <button class="footer-link" id="settings-btn"><img src="/static/assets/10021-imgGear.svg?v=20261028" alt="">设置</button>
+        <button class="footer-link" id="help-btn"><img src="/static/assets/10021-imgHelp.svg?v=20261028" alt="">帮助</button>
+      </div>
+    </aside>
+    <main class="main-area">
+      <header class="global-header" id="global-header">
+        <button class="mobile-menu" id="mobile-menu" aria-label="打开导航">☰</button>
+        <button class="sidebar-restore" id="sidebar-restore" type="button" aria-label="展开侧边栏" title="展开侧边栏">☰</button>
+        <div class="analysis-header-actions" id="analysis-header-actions" hidden>
+          <button type="button" id="header-home">‹ 返回首页</button>
+          <button type="button" id="header-verify">返回证据核验</button>
+          <button type="button" id="header-final">查看完整结论</button>
+        </div>
+        <div class="global-search"><img src="/static/assets/10022-imgSearch.svg?v=20261028" alt=""><input id="global-search-input" placeholder="在当前项目中搜索文献或提问…" aria-label="搜索对话"></div>
+        <span class="rag-pill"><img src="/static/assets/10022-imgRag.svg?v=20261028" alt="">本地RAG检索</span>
+        <button class="icon-button" id="notice-btn" aria-label="通知"><img src="/static/assets/10021-imgGroup14.svg?v=20261028" alt=""></button>
+        <span class="header-divider"></span><span class="avatar header-avatar">T</span><span class="header-caret">⌄</span>
+      </header>
+      <section id="home-screen" class="screen home-screen"></section>
+      <section id="analysis-screen" class="screen analysis-screen" hidden></section>
+      <section id="final-screen" class="screen final-screen" hidden></section>
+    </main>
+  </div>
+  <div class="modal-backdrop" id="project-modal" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><h2 id="modal-title">创建研究项目</h2><p>将新的研究问题归入独立项目。</p><form id="project-form"><input id="project-name" maxlength="80" placeholder="例如：智能眼镜与人体工学" required><div class="modal-actions"><button type="button" class="ghost-button" id="cancel-project">取消</button><button type="submit" class="primary-button">创建项目</button></div></form></div></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/static/app.js?v=20261029-delete1" defer></script>
+</body>
+</html>
