@@ -1226,12 +1226,6 @@ if __name__ == "__main__":
         else:
             logger.error(f"检索器预加载失败：{e}")
             sys.exit(1)
-    except HTTPException as e:
-        if e.status_code == 404:
-            logger.warning("尚未导入文献索引；服务已启动，导入论文后可检索")
-        else:
-            logger.error(f"检索器预加载失败：{e}")
-            sys.exit(1)
     except Exception as e:
         logger.error(f"检索器预加载失败：{e}")
         sys.exit(1)
